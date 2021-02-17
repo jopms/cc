@@ -1,0 +1,321 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body{
+    background-color: #1f1f1f;
+    height: 100vh;
+}
+
+.center-window-wrap{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.cc{
+    width: 100%;
+    height: 0.8rem;
+    margin-left: 2px;
+    font-size: 11px;
+    color: #C0C0C0;
+}
+
+
+.window-bar{
+    position: relative;
+    background-color: #000080;
+    border: solid 3px #C0C0C0;
+    width: 30rem;
+    height: 1rem;
+}
+
+
+
+.center-window{
+    display: flex;
+    flex-direction: column;
+    width: 30rem;
+    height: 20rem;
+    background-color: black;
+    border: solid 3px #C0C0C0;
+}
+
+#cmd{
+    display: flex;
+    text-align: start;
+    background-color: transparent;
+    height: 100%;
+    width: 100%;
+    margin-right: 2px;
+    border: transparent;
+    color: #C0C0C0;
+    font-size: 11px;
+    background-color: transparent;
+}
+
+.directory{
+    margin-left: 2px;
+}
+
+#cmd:focus{
+    outline: none;
+}
+
+.input-text{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+}
+
+.input{
+    display: flex;
+    align-items: center;
+    font-size: 11px;
+    color: #C0C0C0;
+    
+}
+
+.window-options{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: #000080;
+}
+
+.each-option{
+    display: flex;
+    width: 0.9rem;
+    height: 11px;
+    background-color:#C0C0C0;
+    border: solid 1px black;
+}
+
+.each-option:active{
+    transform: translateX(0.5px) translateY(0.5px);
+}
+
+
+
+.window{
+    box-shadow: 6px 6px 8px black;
+
+}
+
+#minimize{
+    background-position: center;
+    background-image: url(/icons/minimize.png);
+}
+
+#maximize{
+    margin-right:3px;
+    background-position: center;
+    background-image: url(/icons/maximize.png);
+}
+
+#close{
+    margin-right: 2px;
+    background-position: center;
+    background-image: url(/icons/close.png);
+}
+
+.text{
+    margin-left:2px;
+    margin-top: 12px;
+    color:#C0C0C0;
+    height: 0.5rem;
+}
+
+h5{
+    font-size: 11px;
+    font-weight: 100;
+    color: #C0C0C0;
+}
+
+.msdos{
+    position: absolute;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    background-image: url(/icons/msdos.png);
+    background-size: cover;
+}
+
+.close-error-wrap{
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.close-error{
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    width: 380px;
+    height: 170px;
+    background-color: #C0C0C0;
+    border: solid 2px #C0C0C0;
+}
+
+.close-top-error{
+    width: 377px;
+    height: 16px;
+    background-color:#000080;
+    border: solid 2px #C0C0C0;
+}
+
+.minimize-error-text{
+    text-align: justify;
+    font-size: 17px;
+    font-weight: 100;
+    padding: 15px 15px 15px 70px;
+    
+}
+
+
+.buttons{
+    display: flex;
+    position:relative;
+    width: 100%;
+    
+    justify-content: center;
+}
+.yes{
+    width: 80px;
+    height: 25px;
+    margin-right: 5px;
+    background-color: #C0C0C0;
+}
+
+.no{
+    width: 80px;
+    height: 25px;
+    background-color: #C0C0C0;
+}
+
+.yes:focus{
+    outline: none;
+}
+
+.no:focus{
+    outline:none;
+}
+
+h4{
+    font-weight: 100;
+}
+
+.alert-icon{
+    position: fixed;
+    margin-top: 37px;
+    margin-left: 10px;
+    width: 50px;
+    height: 50px;
+    background-image: url(/icons/Error.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h3{
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.tab{
+    margin-left: 30px;
+}
+
+.link{
+    color:blue;
+    text-decoration: underline;
+}
+
+.maximized{
+    transform: scale(1.5);
+}
+
+.minimized{
+    transform: scale(1);
+}
+
+.finish-error-wrap{
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.finish-error{
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    width: 380px;
+    height: 170px;
+    background-color: #C0C0C0;
+    border: solid 2px #C0C0C0;
+}
+
+.finish-top-error{
+    width: 377px;
+    height: 16px;
+    background-color:#000080;
+    border: solid 2px #C0C0C0;
+}
+
+.minimize-finish-text{
+    text-align: justify;
+    font-size: 17px;
+    font-weight: 100;
+    padding: 15px 15px 15px 70px;
+    
+}
+
+.alert-finish-icon{
+    position: fixed;
+    margin-top: 37px;
+    margin-left: 10px;
+    width: 50px;
+    height: 50px;
+    background-image: url(/icons/question.ico);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.finish-buttons{
+    display: flex;
+    position:relative;
+    width: 100%;
+    
+    justify-content: center;
+}
+.yes{
+    width: 80px;
+    height: 25px;
+    margin-right: 5px;
+    background-color: #C0C0C0;
+}
+
+.no{
+    width: 80px;
+    height: 25px;
+    background-color: #C0C0C0;
+}
+
+.yes:focus{
+    outline: none;
+}
+
+.no:focus{
+    outline:none;
+}
+
