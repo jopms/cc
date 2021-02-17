@@ -117,9 +117,9 @@ function changeTextToLinks(n) {
         $('#cc3').html(`<a target="_blank" href="https://bit.ly/2QsKzC8">LinkedIn</a>`);
         $('#cc4').html(`<a target="_blank" href="https://github.com/jopms">GitHub</a>`);
     }
-        else{$('#cc6').html(`<a target="_blank" href="https://notes-app-tau-ten.vercel.app/">note-app</a>`);
-        $('#cc7').html(`<a target="_blank" href="https://fe-assignment-jopms.vercel.app/">weather-app</a>`);
-        $('#cc8').html(`<a target="_blank" href="https://news-app-jade.vercel.app/">news-app</a>`);}
+        else{$('#cc6').html(`<a target="_blank" href="https://jopms.github.io/notes-app/">note-app</a>`);
+        $('#cc7').html(`<a target="_blank" href="https://jopms.github.io/weather-app/">weather-app</a>`);
+        $('#cc8').html(`<a target="_blank" href="https://jopms.github.io/news-app/">news-app</a>`);}
 }
 
 function startsAnimation (){
