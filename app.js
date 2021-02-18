@@ -9,12 +9,12 @@ const click = {
         if($('.window').hasClass('minimized')){
             $('.window').removeClass('minimized');
             $('.window').addClass('maximized');
-            console.log("if1");
+            
         }
 
         else{
             $('.window').addClass('maximized');
-            console.log("else1");
+            
         }
     },
 
@@ -61,13 +61,13 @@ function userInteraction (){
             $('.close-error-wrap').show();
         }
         else{
-            console.log("hello");
             $('.finish-error-wrap').show();
         }
     });
     
     $('#noBttn').on('click', function(){
         $('.close-error-wrap').hide();
+        
     });
 
     $('#noBttn-finish').on('click', function(){
@@ -168,11 +168,6 @@ function startsAnimation (){
     } 
     });
 }
-
-
-
-
-
 
     startsAnimation();
     userInteraction();
