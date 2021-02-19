@@ -41,7 +41,7 @@ const user ={
     gitHub: "GitHub",
     avaiability: "Availability : Available",
     directory1: "C:\\Users\\Joao> ",
-    projects: 'dir "documents\\projects"',
+    projects: 'dir /b "documents\\projects"',
     noteapp: 'note-app',
     weather: 'weather-app',
     news: 'news-app'
