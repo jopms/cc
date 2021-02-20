@@ -1,36 +1,36 @@
+const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
+var chain = Promise.resolve();
+
 const click = {
     button: 0,
     window:0,
     maximize(){
-        if($('.window').hasClass('maximized')){
+        if($('.console').hasClass('maximized')){
             return;
         }
         
-        if($('.window').hasClass('minimized')){
-            $('.window').removeClass('minimized');
-            $('.window').addClass('maximized');
-            
+        if($('.console').hasClass('minimized')){
+            $('.console').removeClass('minimized');
+            $('.console').addClass('maximized');
         }
 
         else{
-            $('.window').addClass('maximized');
-            
+            $('.console').addClass('maximized');   
         }
     },
 
     minimize(){
-        if($('.window').hasClass('minimized')){
+        if($('.console').hasClass('minimized')){
             return;
         }
 
-        if($('.window').hasClass('maximized')){
-            $('.window').removeClass('maximized');
-            $('.window').addClass('minimized');
+        if($('.console').hasClass('maximized')){
+            $('.console').removeClass('maximized');
+            $('.console').addClass('minimized');
         }
 
         else{
-            $('.window').addClass('minimized');
-            
+            $('.console').addClass('minimized');
         }
     }
 };
@@ -47,27 +47,31 @@ const user ={
     news: 'news-app'
 }
 
+
 function userInteraction (){
+    //console Minimize (adds class minimize)
     $('#minimize').on('click', function(){
         click.minimize();
     })
     
+    //console Maximize (adds class maximize)
     $('#maximize').on('click', function(){
         click.maximize();
     })
     
+    //console shows a impossible close console if user didnt see animation. Otherwise lets him close the console
     $('#close').on('click', function(){
         if(click.window===0){
-            $('.close-error-wrap').show();
+            $('.close-error-wrap').show(); //Doesn't let user close console
         }
         else{
-            $('.finish-error-wrap').show();
+            $('.finish-error-wrap').show(); 
         }
     });
     
+    //When Clicking the "No" button 
     $('#noBttn').on('click', function(){
         $('.close-error-wrap').hide();
-        
     });
 
     $('#noBttn-finish').on('click', function(){
@@ -75,6 +79,7 @@ function userInteraction (){
         
     });
     
+    //When clicking the "Yes" button
     $('#yesBttn').on('click', function(){
         document.getElementById('close-sound').currentTime = 0; 
         document.getElementById('close-sound').play();
@@ -87,14 +92,11 @@ function userInteraction (){
     $('#yesBttn-finish').on('click', function(){
         $('.finish-error-wrap').hide();
         document.getElementById('shutdown').play();
-        $('.window').fadeOut(4000);
+        $('.console').fadeOut(4000);
     });
-
 }
 
-const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
-var chain = Promise.resolve();
-
+//Writes a word (text) in a certian location (loc) with a 120ms delay of each character
 function typeWriter (text, loc){
     
     let eachCaracter = text.split("");
@@ -108,22 +110,25 @@ function typeWriter (text, loc){
     });
 }
 
+//Writes a word (text) instantly in a certain location (loc) 
 function instantWriter (text, loc){
     $(`${loc}`).html(text);
 }
 
+//Changes the text in CMD to 'a' links after the animation has finished
 function changeTextToLinks(n) {
     if(n===0){
-        $('#cc3').html(`<a target="_blank" href="https://bit.ly/2QsKzC8">LinkedIn</a>`);
-        $('#cc4').html(`<a target="_blank" href="https://github.com/jopms">GitHub</a>`);
+        $('#line3').html(`<a class ="link" target="_blank" href="https://bit.ly/2QsKzC8">LinkedIn</a>`);
+        $('#line4').html(`<a class ="link" target="_blank" href="https://github.com/jopms">GitHub</a>`);
     }
-        else{$('#cc6').html(`<a target="_blank" href="https://jopms-notes-app.netlify.app/">note-app</a>`);
-        $('#cc7').html(`<a target="_blank" href="https://jopms-weather-app.netlify.app/">weather-app</a>`);
-        $('#cc8').html(`<a target="_blank" href="https://jopms-news-app.netlify.app/">news-app</a>`);}
+        else{$('#line6').html(`<a class ="link" target="_blank" href="https://jopms-notes-app.netlify.app/">note-app</a>`);
+        $('#line7').html(`<a class ="link" target="_blank" href="https://jopms-weather-app.netlify.app/">weather-app</a>`);
+        $('#line8').html(`<a class ="link" target="_blank" href="https://jopms-news-app.netlify.app/">news-app</a>`);}
 }
 
+//Starts the animation whenever the user clicks the console
 function startsAnimation (){
-    $('.center-window').on('click', () =>{
+    $('.center-console').on('click', () =>{
         click.window ++;
         if(click.window>1) return;
         else{
@@ -139,17 +144,17 @@ function startsAnimation (){
         setTimeout(() => {
             $("body").css("cursor", "default");
                 chain = chain.then(() => {
-                    instantWriter (user.name, "#cc1");
-                    instantWriter (user.avaiability, "#cc2");
-                    instantWriter (user.linkedIn, "#cc3");
-                    instantWriter (user.gitHub, "#cc4");
-                    instantWriter (user.directory1, "#cc5");
+                    instantWriter (user.name, "#line1");
+                    instantWriter (user.avaiability, "#line2");
+                    instantWriter (user.linkedIn, "#line3");
+                    instantWriter (user.gitHub, "#line4");
+                    instantWriter (user.directory1, "#line5");
                     changeTextToLinks(0);
                 return wait(120);
                 });
-    
+
                 setTimeout(() => {
-                    typeWriter(user.projects,"#cc5");
+                    typeWriter(user.projects,"#line5");
                 }, 1500);
                 setTimeout(() => {
                     $("body").css("cursor", "progress");
@@ -158,10 +163,10 @@ function startsAnimation (){
     
                 setTimeout(() => {
                     $("body").css("cursor", "default");
-                    instantWriter (user.noteapp, "#cc6");
-                    instantWriter (user.weather, "#cc7");
-                    instantWriter (user.news, "#cc8");
-                    instantWriter (user.directory1, "#cc9");
+                    instantWriter (user.noteapp, "#line6");
+                    instantWriter (user.weather, "#line7");
+                    instantWriter (user.news, "#line8");
+                    instantWriter (user.directory1, "#line9");
                     changeTextToLinks(1);
                 }, 6000);
         }, 2300);
@@ -169,8 +174,9 @@ function startsAnimation (){
     });
 }
 
-    startsAnimation();
-    userInteraction();
+
+startsAnimation();
+userInteraction();
 
 
 

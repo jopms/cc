@@ -9,7 +9,8 @@ body{
     height: 100vh;
 }
 
-.center-window-wrap{
+/*Entire screen*/
+.screen-wrap{
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -18,16 +19,14 @@ body{
     height: 100%;
 }
 
-.cc{
-    width: 100%;
-    height: 0.8rem;
-    margin-left: 2px;
-    font-size: 11px;
-    color: #C0C0C0;
+/*Console*/
+.console{
+    box-shadow: 6px 6px 8px black;
+    transform: scale(1.2);
 }
 
-
-.window-bar{
+/*Console top bar*/
+.console-top-bar{
     position: relative;
     background-color: #000080;
     border: solid 3px #C0C0C0;
@@ -35,54 +34,18 @@ body{
     height: 1rem;
 }
 
-
-
-.center-window{
-    display: flex;
-    flex-direction: column;
-    width: 30rem;
-    height: 20rem;
-    background-color: black;
-    border: solid 3px #C0C0C0;
+/*MSDOS Icon*/
+.msdos{
+    position: absolute;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    background-image: url(/icons/msdos.png);
+    background-size: cover;
 }
 
-#cmd{
-    display: flex;
-    text-align: start;
-    background-color: transparent;
-    height: 100%;
-    width: 100%;
-    margin-right: 2px;
-    border: transparent;
-    color: #C0C0C0;
-    font-size: 11px;
-    background-color: transparent;
-}
-
-.directory{
-    margin-left: 2px;
-}
-
-#cmd:focus{
-    outline: none;
-}
-
-.input-text{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    
-}
-
-.input{
-    display: flex;
-    align-items: center;
-    font-size: 11px;
-    color: #C0C0C0;
-    
-}
-
-.window-options{
+/*Wraps Minimize Maximize and Close Options in top bar*/
+.console-options{
     display: flex;
     width: 100%;
     height: 100%;
@@ -91,23 +54,13 @@ body{
     background-color: #000080;
 }
 
+/*Minimize Maximize and Close options in top-bar*/
 .each-option{
     display: flex;
     width: 0.9rem;
     height: 11px;
     background-color:#C0C0C0;
     border: solid 1px black;
-}
-
-.each-option:active{
-    transform: translateX(0.5px) translateY(0.5px);
-}
-
-
-
-.window{
-    box-shadow: 6px 6px 8px black;
-
 }
 
 #minimize{
@@ -127,11 +80,68 @@ body{
     background-image: url(/icons/close.png);
 }
 
+.each-option:active{
+    transform: translateX(0.5px) translateY(0.5px);
+}
+
+/*Center part of console*/
+.center-console{
+    display: flex;
+    flex-direction: column;
+    width: 30rem;
+    height: 20rem;
+    background-color: black;
+    border: solid 3px #C0C0C0;
+    cursor:text;
+}
+
+/*TODO: CHANGE THIS TYPE OF INPUT IN HTML TO A NORMAL TEXT*/
+/*Editable text box*/
+#cmd{
+    display: flex;
+    text-align: start;
+    background-color: transparent;
+    height: 100%;
+    width: 100%;
+    margin-right: 2px;
+    border: transparent;
+    color: #C0C0C0;
+    font-size: 11px;
+    background-color: transparent;
+    align-items: center;
+}
+
+#cmd:focus{
+    outline: none;
+}
+
+/*Top text in console*/
 .text{
     margin-left:2px;
     margin-top: 12px;
     color:#C0C0C0;
     height: 0.5rem;
+}
+
+/*Directory Text wrap*/
+.directory-wrap{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+/*Text that shows user directory*/
+.directory{
+    margin-left: 2px;
+}
+
+/*Each line of animation*/
+.line{
+    width: 100%;
+    height: 0.8rem;
+    margin-left: 2px;
+    font-size: 11px;
+    color: #C0C0C0;
 }
 
 h5{
@@ -140,14 +150,6 @@ h5{
     color: #C0C0C0;
 }
 
-.msdos{
-    position: absolute;
-    left: 0;
-    width: 16px;
-    height: 16px;
-    background-image: url(/icons/msdos.png);
-    background-size: cover;
-}
 
 .close-error-wrap{
     position: absolute;
@@ -236,16 +238,18 @@ h3{
 }
 
 .link{
-    color:blue;
+    color:rgb(0, 0, 255);
     text-decoration: underline;
 }
 
+
+
 .maximized{
-    transform: scale(1.5);
+    transform: scale(1.6);
 }
 
 .minimized{
-    transform: scale(1);
+    transform: scale(1.2);
 }
 
 .finish-error-wrap{
@@ -318,4 +322,5 @@ h3{
 .no:focus{
     outline:none;
 }
+
 
